@@ -1,6 +1,9 @@
 
 #include <bits/stdc++.h>
 using namespace std;
+
+// problem link: https://leetcode.com/problems/running-sum-of-1d-array
+
 vector<int> runningSum(vector<int> &nums)
 {
     // cout << "fjla" << endl;
