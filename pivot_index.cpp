@@ -68,9 +68,32 @@ int find_pivot_index1(vector<int> &nums)
     return -1;
 }
 
+int find_pivot_index3(vector<int> &nums)
+{
+
+    for (int i = 0; i < nums.size(); i++)
+    {
+
+        int left_sum = 0;
+        for (int j = 0; j < i; j++)
+        {
+            left_sum += nums[j];
+        }
+        int right_sum = 0;
+        for (int j = i + 1; j < nums.size(); j++)
+        {
+            right_sum += nums[j];
+        }
+        if (left_sum == right_sum)
+        {
+            return i;
+        }
+    }
+    return -1;
+}
 int main()
 {
 
-    vector<int> nums = {0, 0};
-    cout << get_pivot_index(nums) << endl;
+    vector<int> nums = {1, 2, 1, 0};
+    cout << find_pivot_index3(nums) << endl;
 }
