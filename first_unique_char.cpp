@@ -28,14 +28,14 @@ int firstUniqChar(string s)
 // time complexity O(n) space comlexity (1)
 int firstUniqChar1(string s)
 {
-    vector<int> hash_table(200);
+    vector<int> hash_table(26);
     for (int i = 0; i < s.size(); i++)
     {
-        hash_table[s[i]]++;
+        hash_table[s[i] - 'a']++;
     }
     for (int i = 0; i < s.size(); i++)
     {
-        if (hash_table[s[i]] == 1)
+        if (hash_table[s[i] - 'a'] == 1)
         {
             return i;
         }
@@ -46,7 +46,7 @@ int firstUniqChar1(string s)
 int main()
 {
 
-    string str = "loveleedcode";
+    string str = "abcabc";
     cout << firstUniqChar1(str) << endl;
 
     return 0;
