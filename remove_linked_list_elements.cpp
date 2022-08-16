@@ -61,30 +61,39 @@ bool search(int val)
     return false;
 }
 
-void delete_val(int val)
+Node *delete_val(int val)
 {
-
-    if (head->val == val)
+    while (head && head->val == val)
     {
-        Node *ptr = head;
+        Node *p = head;
         head = head->next;
-        delete ptr;
-        return;
+        delete p;
     }
-    Node *ptr = head;
-    while (ptr)
+    if (head == NULL)
     {
 
-        if (ptr->next->val == val)
-        {
-            Node *to_be_destroyed = ptr->next;
-            ptr->next = ptr->next->next;
-            delete to_be_destroyed;
-            return;
-        }
-        ptr = ptr->next;
+        return head;
     }
-    cout << ptr->val << endl;
+    Node *prev = head;
+    Node *nxt = head->next;
+
+    while (nxt)
+    {
+
+        if (nxt->val == val)
+        {
+            Node *p = nxt;
+            prev->next = nxt->next;
+            nxt = nxt->next;
+            delete p;
+        }
+        else
+        {
+            prev = nxt;
+            nxt = nxt->next;
+        }
+    }
+    return head;
 }
 
 int find_count(int val)
