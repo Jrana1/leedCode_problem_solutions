@@ -5,7 +5,8 @@ using namespace std;
 
 bool is_Valid_Parentheses(string s)
 {
-
+    if (s.length() == 1)
+        return false;
     stack<char> st;
 
     for (int i = 0; i < s.length(); i++)
@@ -14,10 +15,19 @@ bool is_Valid_Parentheses(string s)
         {
             st.push(s[i]);
         }
-        if ((s[i] == ')' && st.top() == '(') || (s[i] == '}' && st.top() == '{') || (s[i] == ']' && st.top() == '['))
+        else
         {
+            if (st.empty())
+                return false;
+            else if ((s[i] == ')' && st.top() == '(') || (s[i] == '}' && st.top() == '{') || (s[i] == ']' && st.top() == '['))
+            {
 
-            st.pop();
+                st.pop();
+            }
+            else
+            {
+                return false;
+            }
         }
     }
     // cout << st.top() << endl;
@@ -25,7 +35,7 @@ bool is_Valid_Parentheses(string s)
 }
 int main()
 {
-    string str = "()[]{}";
+    string str = "(){}}{";
     cout << is_Valid_Parentheses(str) << endl;
 
     return 0;

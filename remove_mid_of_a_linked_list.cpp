@@ -84,15 +84,24 @@ Node *deleteMiddle(Node *head)
 int main()
 {
 
-    add_node(1);
-    add_node(2);
-    add_node(3);
-    add_node(4);
-    // add_node(5);
-    // add_node(6);
-    display();
-    deleteMiddle(head);
-    display();
+    // add_node(1);
+    // add_node(2);
+    // add_node(3);
+    // add_node(4);
+    // // add_node(5);
+    // // add_node(6);
+    // display();
+    // deleteMiddle(head);
+    // display();
+
+    priority_queue<int, vector<int>> pq;
+
+    pq.push(9);
+    pq.push(1);
+    pq.push(3);
+    pq.push(10);
+    pq.push(5);
+    cout << pq.top() << endl;
 
     return 0;
 }
