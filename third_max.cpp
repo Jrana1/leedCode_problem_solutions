@@ -3,7 +3,7 @@
 #include <bits/stdc++.h>
 
 using namespace std;
-// sol in O(n) time and O(n) space complexity
+// sol in O(nlogn) time and O(n) space complexity
 int thirdMax(vector<int> &nums)
 {
 

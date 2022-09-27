@@ -60,13 +60,9 @@ int lengthOfLongestSubstring1(string s)
 int main()
 {
 
-    // string s = "abcabcbb";
-    // // cout << s.size() << endl;
-    // cout << lengthOfLongestSubstring1(s) << endl;
-    vector<int> v1(10);
-    vector<int> v2(10);
-    v1[2] = 2;
-    v2[2] = 2;
-    cout << (v1 == v2) << endl;
+    string s = "abcabcbb";
+    // cout << s.size() << endl;
+    cout << lengthOfLongestSubstring1(s) << endl;
+
     return 0;
 }

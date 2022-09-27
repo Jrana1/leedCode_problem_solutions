@@ -2,7 +2,7 @@
 
 #include <bits/stdc++.h>
 using namespace std;
-
+/// brute force approaches--> O(N^2) time complexity and O(N) space complexity
 vector<int> nextGreaterElement(vector<int> &nums1, vector<int> &nums2)
 {
     unordered_map<int, int> mp;
@@ -46,12 +46,62 @@ vector<int> nextGreaterElement(vector<int> &nums1, vector<int> &nums2)
         cout << x << " ";
     }
 }
+// better approache using Stack time complexity O(N)
+vector<int> myFun(vector<int> &nums)
+{
+
+    stack<int> st;
+    vector<int> res(nums.size());
+    st.push(0);
+
+    for (int i = 1; i < nums.size(); i++)
+    {
+
+        if (!st.empty() && nums[i] <= nums[st.top()])
+        {
+
+            st.push(i);
+        }
+        else
+        {
+
+            while (!st.empty() && nums[i] > nums[st.top()])
+            {
+
+                res[st.top()] = nums[i];
+                st.pop();
+            }
+            st.push(i);
+        }
+    }
+    // while (!st.empty())
+    // {
+
+    //     res[st.top()] = -1;
+    //     st.pop();
+    // }
+    int n = st.size();
+    for (int i = 0; i < n - 1; i++)
+    {
+
+        int first_top = st.top();
+        st.pop();
+        int second_top = st.top();
+        res[first_top] = nums[second_top];
+    }
+
+    for (auto x : res)
+    {
+        cout << x << " ";
+    }
+}
 
 int main()
 {
-    vector<int> nums1 = {2, 1, 3};
+    vector<int> nums1 = {5, 4, 3, 2, 1, 3};
     vector<int> nums2 = {2, 3, 1};
-    vector<int> res = nextGreaterElement(nums1, nums2);
+    // vector<int> res = nextGreaterElement(nums1, nums2);
+    myFun(nums1);
     // for (auto x : res)
     // {
     //     cout << x << " ";

@@ -2,6 +2,8 @@
 
 #include <bits/stdc++.h>
 using namespace std;
+
+// O(n) time complexity & O(1) space complexity
 int diagonalSum(vector<vector<int>> &mat)
 {
 

@@ -53,10 +53,9 @@ int binary_search(vector<int> &vec, int k)
 
 int main()
 {
-
-    vector<int> v = {1, 3, 5};
-
-    cout << binary_search(v, 1) << endl;
+    double b = log10(43) / log10(3);
+    float ans = b - (int)(b);
+    cout << ans << " " << b << endl;
 
     return 0;
 }

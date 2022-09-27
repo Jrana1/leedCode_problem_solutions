@@ -3,7 +3,7 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-bool isHapp(int n)
+bool isHappy(int n)
 {
     set<string> st;
 
@@ -42,7 +42,7 @@ int main()
     int n;
     cin >> n;
 
-    cout << isHapp(n) << endl;
+    cout << isHappy(n) << endl;
 
     return 0;
 }

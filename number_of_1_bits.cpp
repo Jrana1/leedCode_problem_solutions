@@ -24,7 +24,9 @@ int hammingWeight(uint32_t n)
 
 int main()
 {
-    cout << hammingWeight(7) << endl;
+    vector<int> v1 = {1, 2, 6, 10};
+    vector<int> v2 = {0, 4, 10, 15};
+    pair_sum(v1, v2, 10);
 
     return 0;
 }

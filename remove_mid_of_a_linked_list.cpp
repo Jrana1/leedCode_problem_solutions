@@ -94,14 +94,19 @@ int main()
     // deleteMiddle(head);
     // display();
 
-    priority_queue<int, vector<int>> pq;
+    priority_queue<int, vector<int>, greater<int>> pq;
 
     pq.push(9);
     pq.push(1);
     pq.push(3);
     pq.push(10);
     pq.push(5);
-    cout << pq.top() << endl;
+    while (!pq.empty())
+    {
+        cout << pq.top() << "->";
+        pq.pop();
+    }
+    cout << "NULL";
 
     return 0;
 }
