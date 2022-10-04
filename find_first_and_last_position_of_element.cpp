@@ -30,29 +30,19 @@ int binary_search(vector<int> &v, int k)
 int main()
 {
 
-    vector<int> v = {5, 7, 7, 8, 8, 10, 11, 11, 13, 15};
-    int k = 13;
+    vector<int> v = {5, 7, 7, 8, 8, 10};
+    int k = 8;
     int idx = binary_search(v, k);
     int left = idx, right = idx;
-    while (1)
+    cout << idx << endl;
+    while (left >= 0 && v[left] == k)
     {
-
-        int flag = true;
-        if (right < v.size() && v[right + 1] == k)
-        {
-            right++;
-            flag = false;
-        }
-        if (left >= 0 && v[left - 1] == k)
-        {
-            left--;
-            flag = false;
-        }
-        if (flag == true)
-        {
-            break;
-        }
+        left--;
     }
-    cout << left << " " << right << endl;
+    while (right < v.size() && v[right] == k)
+    {
+        right++;
+    }
+    cout << left + 1 << " " << right - 1 << endl;
     return 0;
 }
