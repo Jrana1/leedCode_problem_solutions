@@ -8,6 +8,7 @@ struct Node
     Node *next;
     Node(int x) : val(x), left(NULL), right(NULL), next(NULL)
     {
+
     }
 };
 
@@ -15,7 +16,6 @@ void inorder(Node *root)
 {
     if (root)
     {
-
         cout << root->val << " ";
         inorder(root->left);
         inorder(root->right);
@@ -38,20 +38,18 @@ Node *connect(Node *root)
         {
 
             Node *n1 = q.front();
-
             q.pop();
             if (i == 0)
             {
                 cout << n1->val << " ";
             }
-            // else
+           // else
             // {
-
             //     if (!q.empty())
             //     {
             //         n1->next = q.front();
             //     }
-            // }
+            // } 
             q.push(n1->left);
             q.push(n1->right);
         }
