@@ -1,8 +1,11 @@
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.HashMap;
 import java.util.Iterator;
 import java.util.PriorityQueue;
+import java.util.TreeMap;
 import java.util.List;
+import java.util.Map;
 
 class Solution {
     public int lastStoneWeight(int[] stones) {
@@ -59,6 +62,24 @@ class Solution {
 
         }
 
+    }
+public boolean containsNearbyDuplicate(int[] nums, int k) {
+
+        Map<Integer, Integer> mp = new HashMap<Integer, Integer>();
+        int n = nums.length;
+        for (int i = 0; i < n; i++) {
+            if (mp.get(nums[i]) == null) {
+                mp.put(nums[i], i);
+            } else {
+                if (Math.abs(mp.get(nums[i]) - i) <= k) {
+                    return true;
+                } else {
+                    mp.put(nums[i], i);
+                }
+                // System.out.println(mp.get(nums[i]) - i);
+            }
+        }
+        return false;
     }
 }
 
@@ -125,26 +146,30 @@ class Tree {
 public class Demo {
     public static void main(String[] args) {
 
-        Tree root = new Tree(3);
-        Tree n1 = new Tree(5);
-        Tree n2 = new Tree(1);
-        Tree n3 = new Tree(6);
-        Tree n4 = new Tree(2);
-        Tree n5 = new Tree(9);
-        Tree n6 = new Tree(8);
+        int[] nums = { 1, 0, 1, 1 };
+        Solution s = new Solution();
+        System.out.println(s.containsNearbyDuplicate(nums, 1));
+        // Tree root = new Tree(3);
+        // Tree n1 = new Tree(5);
+        // Tree n2 = new Tree(1);
+        // Tree n3 = new Tree(6);
+        // Tree n4 = new Tree(2);
+        // Tree n5 = new Tree(9);
+        // Tree n6 = new Tree(8);
 
-        root.left = n1;
-        root.right = n2;
-        n1.left = n3;
-        n1.right = n4;
-        n2.left = n5;
-        n2.right = n6;
+        // root.left = n1;
+        // root.right = n2;
+        // n1.left = n3;
+        // n1.right = n4;
+        // n2.left = n5;
+        // n2.right = n6;
 
-        List<Integer> leafs = new ArrayList<Integer>();
-        root.dfs(root, leafs);
-        for (var x : leafs) {
-            System.out.println(x);
-        }
+        // List<Integer> leafs = new ArrayList<Integer>();
+        // root.dfs(root, leafs);
+        // for (var x : leafs) {
+        // System.out.println(x);
+        // }
+        // String str = String.valueOf(10);
 
     }
 
