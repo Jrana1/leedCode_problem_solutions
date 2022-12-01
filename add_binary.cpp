@@ -56,9 +56,10 @@ string addBinary(string a, string b)
 int main()
 {
 
-    string a = "1010";
-    string b = "1011";
-    addBinary(a, b);
+    // string a = "1010";
+    // string b = "1011";
+    // // addBi
+    cout << "hello" << endl;
 
     return 0;
 }
