@@ -39,6 +39,13 @@ int main()
 
     Solution s;
     // cout << 'b' - 'a' << endl;
-    s.frequencySort("Aabb");
+    // s.frequencySort("Aabb");
+
+    vector<int> arr(10, 0);
+
+    for (int x = 0; x < 10; x++)
+    {
+        cout << arr[x] << endl;
+    }
     return 0;
 }
