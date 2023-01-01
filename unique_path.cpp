@@ -5,7 +5,6 @@ class Solution
 {
 private:
     int ans;
-    vector<int> path;
 
 public:
     int uniquePathsIII(vector<vector<int>> &grid)
