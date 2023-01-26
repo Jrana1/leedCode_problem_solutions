@@ -4,63 +4,48 @@ using namespace std;
 int main()
 {
 
-    // w = width of the room
-    // l = length of the room
-    int w, l;
+    int n;
     while (1)
     {
-
-        cin >> w >> l;
-        // n = no. of segments
-        if (w == 0 && l == 0)
+        cin >> n;
+        if (n == 0)
         {
             break;
         }
-        int n;
-        cin >> n;
-        int X = 0, Y = 0;
-        //(X,Y) where robot thinks
-        //(X1,Y1) where it actually is
-        int X1 = 0, Y1 = 0;
-        while (n--)
+        set<int> list1;
+        vector<int> list2;
+        vector<int> list3;
+        for (int i = 0; i < 2 * n; i++)
         {
 
-            char direction;
-            // y = distance in given direction
-            int y;
-            cin >> direction;
-            cin >> y;
-            switch (direction)
+            int x;
+            cin >> x;
+            if (i < n)
             {
-            case 'u':
-                /* code */
-                Y += y;
-                X1 = min(l - 1, X1 + y);
-                break;
-            case 'r':
-                /* code */
-                X += y;
+                list1.insert(x);
+                list3.push_back(x);
+            }
+            else
+            {
 
-                Y1 = min(w - 1, Y1 + y);
-
-                break;
-            case 'd':
-                /* code */
-                Y -= y;
-                X1 = max(0, X1 - y);
-                break;
-            case 'l':
-                /* code */
-                X -= y;
-                Y1 = max(0, Y1 - y);
-                break;
-
-            default:
-                break;
+                list2.push_back(x);
             }
         }
-        cout << "Robot thinks " << X << " " << Y << endl;
-        cout << "Actually at " << Y1 << " " << X1 << endl;
+        sort(list2.begin(), list2.end());
+        unordered_map<int, int> mp;
+        int i = 0;
+        for (auto it = list1.begin(); it != list1.end(); it++)
+        {
+
+            mp.insert({*it, i});
+            i++;
+        }
+
+        for (int x = 0; x < n; x++)
+        {
+            cout << list2[mp.find(list3[x])->second] << endl;
+        }
+        cout << endl;
     }
     return 0;
 }

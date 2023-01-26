@@ -22,9 +22,9 @@ public:
                 //     cnt++;
                 //     break;
                 // }
-                tmp1 += strs[j].at(i);
-                tmp2 += strs[j].at(i);
-                // cout << strs[j].at(i);
+                // tmp1 += strs[j].at(i);
+                // tmp2 += strs[j].at(i);
+                // // cout << strs[j].at(i);
             }
 
             // cout << tmp1 << " " << tmp2 << endl;
