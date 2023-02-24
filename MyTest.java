@@ -45,17 +45,23 @@ class Solution {
 
             String line = sc.nextLine();
 
-            String[] strs = line.split(" ");
+            String[] tmp = line.split(" ");
 
+            HashSet<String> strs = new HashSet<>();
             for (int j = 0; j < m; j++) {
 
-                if (ht.containsKey(strs[j])) {
-                    int x = ht.get(strs[j]);
+                strs.add(tmp[j]);
+            }
+            var it = strs.iterator();
+            for (; it.hasNext();) {
+                String st = it.next();
+                if (ht.containsKey(st)) {
+                    int x = ht.get(st);
                     x++;
-                    ht.put(strs[j], x);
+                    ht.put(st, x);
 
                 } else {
-                    ht.put(strs[j], 1);
+                    ht.put(st, 1);
 
                 }
 
