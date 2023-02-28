@@ -36,7 +36,7 @@ void show(Node *root){
 
     Node *tmp=root;
     while(tmp){
-        cout<<tmp->val<<" ";
+        cout<<tmp->val<<(tmp->next?"-->":"");
         tmp=tmp->next;
     }
     cout<<endl;
@@ -68,7 +68,7 @@ int main(){
 //    cout<<count(root)<<endl;
   int cnt = count(root);
   int *arr= new int[cnt];
-
+  show(root);
   Node *tmp=root;
   int i=0;
   while(tmp){
