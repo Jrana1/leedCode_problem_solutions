@@ -1,4 +1,10 @@
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+import java.util.Optional;
 import java.util.Scanner;
+import java.util.stream.Collector;
+import java.util.stream.Collectors;
 
 class Solution {
 
@@ -60,7 +66,16 @@ public class Test {
 
     public static void main(String[] args) {
 
-        Solution s = new Solution();
-        s.solve();
+        List<Integer> nums = new ArrayList<Integer>(Arrays.asList(3, 10, 2, 11, 23, 1, 0, 5));
+
+        Optional<Integer> max = nums.stream().min(Integer::compare);
+        System.out.println(max.get());
+
+        List<Integer> res = nums.stream().filter(e -> e % 2 == 0).collect(Collectors.toList());
+        List<Integer> sorted = nums.stream().sorted().collect(Collectors.toList());
+
+        System.out.println(res.toString());
+        System.out.println(sorted.toString());
+
     }
 }
