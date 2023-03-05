@@ -61,8 +61,5 @@ public:
 int main()
 {
 
-    cout << (true && true) << endl;
-    cout << (9 le 9) << endl;
-    cout << (9 ge 9) << endl;
     return 0;
 }
